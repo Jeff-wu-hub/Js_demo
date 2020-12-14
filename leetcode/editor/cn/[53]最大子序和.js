@@ -21,14 +21,15 @@
  */
 var maxSubArray = function(nums) {
     let ans = 0
-    let temp =0
-    nums.forEach((item,index)=>{
-        for(let i=0;i<=index;i++){
-            temp=+nums[i]
-            ans = Math.max(ans,temp)
-            temp = 0
+    let max = nums[0]
+    for(let i = 0;i<nums.length;i++){
+        if(ans<0){
+            ans = nums[i]
+        }else{
+            ans+=nums[i]
         }
-    })
-    return ans
+        max = Math.max(ans,max)
+    }
+    return max
 };
 //leetcode submit region end(Prohibit modification and deletion)
