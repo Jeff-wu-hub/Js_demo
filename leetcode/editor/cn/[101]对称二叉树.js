@@ -45,7 +45,17 @@
  */
 var isSymmetric = function(root) {
     check = function (left,right) {
-
+        if(left==null&&right==null){
+            return true
+        }
+        if(left&&right){
+            return (left.val === right.val)&&check(left.left,right.right)&&check(left.right,right.left)
+        }
+        return false
     }
+    if(root==null){
+        return true
+    }
+    return check(root.left,root.right)
 };
-//leetcode submit region end(Prohibit modification and deletion)
+isSymmetric([])
